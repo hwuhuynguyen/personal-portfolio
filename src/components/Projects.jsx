@@ -1,69 +1,87 @@
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { useRef, useState } from 'react';
+import { FaJava } from 'react-icons/fa';
 import { FiGithub, FiExternalLink, FiX } from 'react-icons/fi';
+import { GiBrain, GiDatabase, GiRadioTower } from 'react-icons/gi';
 import {
     SiNodedotjs,
-    SiExpress,
     SiMongodb,
-    SiDjango,
     SiPostgresql,
     SiRedis,
-    SiFlask,
-    SiSqlite,
     SiGraphql,
     SiDocker,
     SiSocketdotio,
-    SiStripe,
+    SiSpring,
+    SiTypescript,
+    SiReact,
+    SiNextdotjs,
+    SiMysql,
+    SiKubernetes,
+    SiRabbitmq,
+    SiBitbucket,
+    SiApache,
+    SiGithub,
+    SiPython,
+    SiFlask,
 } from 'react-icons/si';
 
 const projects = [
     {
-        title: 'E-Commerce API',
+        title: 'IOC CQK - Military Equipment Management System',
         description:
-            'A comprehensive RESTful API for an e-commerce platform featuring user authentication, product management, cart functionality, and order processing with integrated Stripe payment gateway.',
+            'The Military Equipment Management System streamlines the tracking, maintenance, and management of military assets. It features real-time sensor data tracking, automated alerts, and detailed reporting, ensuring equipment is always operational and ready for deployment. The system enhances operational efficiency, reduces downtime, and improves transparency through an intuitive interface for managing inventory and maintenance schedules.',
         detailedDescription:
-            'Built a production-ready e-commerce backend API that handles thousands of concurrent users. The system implements a microservices architecture with separate services for authentication, product catalog, cart management, and payment processing. Integrated with Stripe for secure payment handling and implemented comprehensive error handling and logging.',
+            'This is a comprehensive solution designed to streamline the tracking, management, and maintenance of military assets and equipment. The system allows military personnel to efficiently manage inventory, monitor the condition of equipment, schedule maintenance, and track usage across various units. Key features include real-time sensors data tracking, automated alerts for abnormal data, and detailed reporting for decision-making. This also provides an intuitive interface for users to input and access critical information regarding the lifecycle of military assets, ensuring that equipment is always operational and ready for deployment. The system enhances transparency, improves operational efficiency, and reduces downtime by ensuring that all equipment is maintained and serviced according to pre-defined schedules.',
         technologies: [
-            { name: 'Node.js', icon: SiNodedotjs },
-            { name: 'Express', icon: SiExpress },
-            { name: 'MongoDB', icon: SiMongodb },
-            { name: 'Stripe', icon: SiStripe },
+            { name: 'Java', icon: FaJava },
+            { name: 'Spring Boot', icon: SiSpring },
+            { name: 'TypeScript', icon: SiTypescript },
+            { name: 'React', icon: SiReact },
+            { name: 'Next', icon: SiNextdotjs },
+            { name: 'MySQL', icon: SiMysql },
+            { name: 'Kubernetes', icon: SiKubernetes },
+            { name: 'AI Integration', icon: GiBrain },
+            { name: 'IoT Integration', icon: GiRadioTower },
         ],
         features: [
-            'JWT Authentication',
-            'Product CRUD',
-            'Shopping Cart',
-            'Payment Integration',
-            'Order Tracking',
-            'Email Notifications',
-            'Admin Dashboard API',
-            'Inventory Management',
+            'Realtime Sensor Data Tracking',
+            'Automated Alerts for Abnormal Data',
+            'Reduced Downtime',
+            'Intuitive Interface for Users to Input and Access Critical Information',
+            'Detailed Reporting for Decision-Making',
+            'Enhanced Operational Efficiency',
         ],
         challenges: [
-            'Handling concurrent cart updates and preventing race conditions',
-            'Implementing idempotent payment processing',
-            'Optimizing database queries for product search and filtering',
+            'Real-time monitoring integration from IoT sensors',
+            'AI integration for anomaly detection',
+            'Performance optimization for real-time data processing',
         ],
         outcomes: [
-            'Successfully processed 10,000+ orders in first month',
+            'Shortened project delivery time',
             'Achieved 99.9% uptime',
-            'Reduced API response time by 40% through caching',
+            '24/7 real-time monitoring',
         ],
-        role: 'Full Stack Backend Developer',
-        github: 'https://github.com',
-        demo: 'https://api-docs.example.com',
+        role: 'Fullstack Developer',
+        github: null,
+        demo: null,
         image: '🛒',
     },
     {
-        title: 'Task Management API',
+        title: 'IOC BXD - Intelligence Operation Center of the Ministry of Construction',
         description:
-            'Backend service for a task management application with real-time updates, team collaboration, and advanced task filtering. Implements Redis for caching and real-time notifications.',
+            'The Intelligence Operation Center of the Ministry of Construction is an IT system designed to optimize the management and coordination of construction projects. It uses advanced technologies to track progress, manage resources, and ensure quality, while supporting decision-making and sustainable development strategies.',
         detailedDescription:
-            'Developed a scalable task management backend using Django REST Framework with PostgreSQL for data persistence and Redis for caching and real-time features. Implemented complex permission systems for team-based access control and real-time WebSocket connections for live updates.',
+            // 'Built a production-ready e-commerce backend API that handles thousands of concurrent users. The system implements a microservices architecture with separate services for authentication, product catalog, cart management, and payment processing. Integrated with Stripe for secure payment handling and implemented comprehensive error handling and logging.',
+            'The Intelligence Operation Center of the Ministry of Construction is an information technology system designed to collect, analyze, and process data related to activities in the country. The center aims to optimize the management, monitoring, and coordination of construction projects, improve management efficiency, enhance decision-making capabilities, and support sustainable development strategies for the country. The system utilizes advanced technologies to track project progress, manage resources, and ensure security quality.',
         technologies: [
-            { name: 'Django', icon: SiDjango },
-            { name: 'PostgreSQL', icon: SiPostgresql },
+            { name: 'Java', icon: FaJava },
+            { name: 'Spring Boot', icon: SiSpring },
+            { name: 'MySQL', icon: SiMysql },
+            { name: 'MongoDB', icon: SiMongodb },
             { name: 'Redis', icon: SiRedis },
+            { name: 'Docker', icon: SiDocker },
+            { name: 'Kubernetes', icon: SiKubernetes },
+            { name: 'Data Integration', icon: GiDatabase },
         ],
         features: [
             'Real-time Updates',
@@ -86,115 +104,133 @@ const projects = [
             'Achieved sub-100ms API response times',
         ],
         role: 'Backend Developer',
-        github: 'https://github.com',
+        github: null,
         demo: null,
         image: '📋',
     },
     {
-        title: 'Real-time Chat Backend',
+        title: 'Multi-tenant Intelligence Operation Center System',
         description:
-            'Scalable WebSocket-based chat application backend supporting private messaging, group chats, file sharing, and message history with end-to-end encryption support.',
+            'The Multi-tenant Intelligence Operation Center (IOC) System allows multiple organizations to manage and monitor their operations on a single platform. It collects and analyzes real-time data, provides customized reports, ensures data security, and supports decision-making and incident management. The system is scalable, allowing easy integration of new tenants while maintaining high performance.',
         detailedDescription:
-            'Built a high-performance real-time chat system using Socket.io and Node.js. Implemented horizontal scaling with Redis pub/sub for multi-server deployments. Features include typing indicators, read receipts, message reactions, and support for multimedia file sharing with automatic compression.',
+            'The Multi-tenant Intelligence Operation Center (IOC) System is designed to manage and monitor multiple tenants (organizations or departments) within a single platform. It allows each tenant to customize its interface, reports, and management features while maintaining full independence. The system collects and analyzes real-time data from various sources such as IoT sensors, surveillance cameras, and communication networks, providing actionable insights and alerts. It ensures data security by allowing each tenant to set their own access permissions and privacy settings. Additionally, the system enhances decision-making by offering intelligent analytics and forecasts, optimizes resource allocation, and supports efficient incident management and coordination across tenants. With scalability and resource distribution, the system can easily expand to accommodate new tenants while maintaining high performance and security.',
         technologies: [
-            { name: 'Node.js', icon: SiNodedotjs },
-            { name: 'Socket.io', icon: SiSocketdotio },
+            { name: 'Java', icon: FaJava },
+            { name: 'Spring Boot', icon: SiSpring },
+            { name: 'MySQL', icon: SiMysql },
             { name: 'MongoDB', icon: SiMongodb },
             { name: 'Redis', icon: SiRedis },
+            { name: 'Docker', icon: SiDocker },
+            { name: 'Kubernetes', icon: SiKubernetes },
+            { name: 'Data Integration', icon: GiDatabase },
+            { name: 'Apache Camel', icon: SiApache },
         ],
         features: [
-            'WebSocket Communication',
-            'Group Chats',
-            'File Uploads',
-            'Message History',
-            'Online Presence',
-            'Typing Indicators',
-            'Read Receipts',
-            'Message Reactions',
+            'Multi-tenant Management',
+            'Customizable Interface',
+            'Realtime Data Analysis',
+            'Actionable Insights',
+            'Data Security',
+            'Intelligent Analytics',
+            'Resource Optimization',
+            'Incident Management',
         ],
         challenges: [
-            'Scaling WebSocket connections across multiple servers',
-            'Implementing efficient message delivery guarantees',
-            'Managing file uploads and storage optimization',
+            'Implementing secure authentication and authorization',
+            'Handling API rate limits and failures gracefully',
+            'Managing data security and privacy',
         ],
         outcomes: [
-            '10,000+ concurrent connections supported',
-            'Sub-50ms message delivery latency',
-            '99.95% message delivery success rate',
+            'Support for multiple tenants',
+            'Customizable interface for each tenant',
+            'Real-time data analysis',
+            'Actionable insights and alerts',
+            'Data security and privacy',
+            'Intelligent analytics and forecasts',
+            'Resource optimization',
+            'Incident management and coordination',
         ],
         role: 'Backend Engineer',
-        github: 'https://github.com',
+        github: null,
         demo: null,
         image: '💬',
     },
     {
-        title: 'Weather Data Aggregator',
+        title: 'HDSAISON - Online Loan Application Platform Business',
         description:
-            'A microservice that aggregates weather data from multiple third-party APIs, normalizes the data, and serves it through a unified RESTful endpoint with caching for improved performance.',
+            'A platform that enables users to apply for loans, submit personal information, select loan options, and sign contracts online, streamlining the process and improving accessibility. It also allows businesses to manage and track loan applications, offering data-driven insights for decision-making.',
         detailedDescription:
-            'Created a weather data aggregation service that combines data from multiple weather APIs (OpenWeatherMap, WeatherAPI, etc.) to provide reliable and comprehensive weather information. Implemented intelligent caching strategies and fallback mechanisms to ensure high availability.',
+            'Developed and implemented an online loan application platform, enabling users to apply for loans, submit personal information, select loan options, and sign contracts online. This streamlined process improved accessibility and saved time by eliminating the need for in-person visits to banks. Additionally, the platform helps businesses manage online loan applications, track application statuses, and analyze loan performance to make data-driven decisions.',
         technologies: [
-            { name: 'Flask', icon: SiFlask },
-            { name: 'SQLite', icon: SiSqlite },
+            { name: 'Java', icon: FaJava },
+            { name: 'Spring Boot', icon: SiSpring },
+            { name: 'PostgreSQL', icon: SiPostgresql },
+            { name: 'RabbitMQ', icon: SiRabbitmq },
+            { name: 'Docker', icon: SiDocker },
+            { name: 'Bitbucket', icon: SiBitbucket },
         ],
         features: [
-            'Multi-API Aggregation',
-            'Data Normalization',
-            'Response Caching',
-            'Rate Limiting',
-            'Scheduled Updates',
-            'Fallback Mechanisms',
-            'Historical Data',
+            'Online Loan Application Platform',
+            'Personal Information Submission',
+            'Loan Options Selection',
+            'Contract Signing',
+            'Application Management',
+            'Status Tracking',
+            'Performance Analysis',
         ],
         challenges: [
-            'Normalizing data from different API formats',
+            'Implementing secure authentication and authorization',
             'Handling API rate limits and failures gracefully',
-            'Implementing efficient caching strategy',
         ],
         outcomes: [
-            '1,000+ API requests per minute handled',
-            '95% cache hit rate achieved',
-            '99.9% uptime maintained',
+            'Online Loan Application Platform',
+            'Personal Information Submission',
+            'Loan Options Selection',
+            'Contract Signing',
+            'Application Management',
+            'Status Tracking',
+            'Performance Analysis',
         ],
         role: 'Backend Developer',
-        github: 'https://github.com',
-        demo: 'https://weather-api.example.com',
+        github: null,
+        demo: null,
         image: '🌤️',
     },
     {
-        title: 'API Gateway Service',
+        title: 'BookRec - Bookstore with Recommendation System',
         description:
-            'A GraphQL-based API Gateway that unifies multiple microservices, handling authentication, rate limiting, and request routing. Built with Docker for easy deployment and scaling.',
+            'Built a comprehensive e-commerce platform for selling books, featuring an AI-based recommendation system to personalize user experiences and boost sales. The system allows users to browse, purchase, and receive tailored book suggestions, while providing admins with tools to manage products, orders, and performance analytics.',
         detailedDescription:
-            'Designed and implemented a GraphQL API Gateway that serves as a unified entry point for multiple microservices. Features include schema stitching, request batching, intelligent caching, and comprehensive monitoring. Containerized with Docker for easy deployment and horizontal scaling.',
+            'Built a full-featured e-commerce web application for selling books, integrated with an AI- based recommendation system to enhance user engagement and maximize sales. The system allows users to browse, purchase, and receive personalized book suggestions while providing administrators with powerful tools for managing products, orders, and performance metrics.',
         technologies: [
-            { name: 'Node.js', icon: SiNodedotjs },
-            { name: 'GraphQL', icon: SiGraphql },
-            { name: 'Docker', icon: SiDocker },
-            { name: 'Redis', icon: SiRedis },
+            { name: 'Java', icon: FaJava },
+            { name: 'Spring Boot', icon: SiSpring },
+            { name: 'TypeScript', icon: SiTypescript },
+            { name: 'React', icon: SiReact },
+            { name: 'Next', icon: SiNextdotjs },
+            { name: 'Python', icon: SiPython },
+            { name: 'Flask', icon: SiFlask },
+            { name: 'PostgreSQL', icon: SiPostgresql },
+            { name: 'AI Integration', icon: GiBrain },
         ],
         features: [
-            'GraphQL Federation',
-            'Service Discovery',
-            'Load Balancing',
-            'Request Caching',
-            'Health Monitoring',
-            'Schema Stitching',
-            'Request Batching',
-            'Error Tracking',
+            'Online Bookstore',
+            'Personalized Recommendations',
+            'Order Management',
+            'Performance Analytics',
         ],
         challenges: [
-            'Implementing efficient schema federation across services',
-            'Managing authentication and authorization across microservices',
-            'Optimizing GraphQL query performance',
+            'Implementing secure authentication and authorization',
+            'Handling API rate limits and failures gracefully',
         ],
         outcomes: [
-            'Reduced API complexity by 60%',
-            'Improved response times by 35%',
-            'Unified 8 microservices under single gateway',
+            'Online Bookstore',
+            'Personalized Recommendations',
+            'Order Management',
+            'Performance Analytics',
         ],
-        role: 'Senior Backend Developer',
-        github: 'https://github.com',
+        role: 'Fullstack Developer',
+        github: null,
         demo: null,
         image: '🔗',
     },
@@ -289,7 +325,7 @@ export default function Projects() {
                                         animate={{ opacity: hoveredIndex === index ? 1 : 0 }}
                                         transition={{ duration: 0.3 }}
                                     >
-                                        <motion.a
+                                        {project.github && <motion.a
                                             href={project.github}
                                             target="_blank"
                                             rel="noopener noreferrer"
@@ -298,19 +334,17 @@ export default function Projects() {
                                             whileTap={{ scale: 0.9 }}
                                         >
                                             <FiGithub className="text-white" size={24} />
-                                        </motion.a>
-                                        {project.demo && (
-                                            <motion.a
-                                                href={project.demo}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors"
-                                                whileHover={{ scale: 1.1 }}
-                                                whileTap={{ scale: 0.9 }}
-                                            >
-                                                <FiExternalLink className="text-white" size={24} />
-                                            </motion.a>
-                                        )}
+                                        </motion.a>}
+                                        {project.demo && <motion.a
+                                            href={project.demo}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors"
+                                            whileHover={{ scale: 1.1 }}
+                                            whileTap={{ scale: 0.9 }}
+                                        >
+                                            <FiExternalLink className="text-white" size={24} />
+                                        </motion.a>}
                                     </motion.div>
                                 </div>
 
@@ -483,7 +517,7 @@ export default function Projects() {
 
                                 {/* Action Buttons */}
                                 <div className="flex flex-wrap gap-4">
-                                    <a
+                                    {selectedProject.github && <a
                                         href={selectedProject.github}
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -491,18 +525,16 @@ export default function Projects() {
                                     >
                                         <FiGithub size={20} />
                                         <span>View on GitHub</span>
-                                    </a>
-                                    {selectedProject.demo && (
-                                        <a
-                                            href={selectedProject.demo}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-shadow"
-                                        >
-                                            <FiExternalLink size={20} />
-                                            <span>View Live Demo</span>
-                                        </a>
-                                    )}
+                                    </a>}
+                                    {selectedProject.demo && <a
+                                        href={selectedProject.demo}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-shadow"
+                                    >
+                                        <FiExternalLink size={20} />
+                                        <span>View Live Demo</span>
+                                    </a>}
                                 </div>
                             </div>
                         </motion.div>

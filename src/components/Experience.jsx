@@ -12,11 +12,11 @@ const experiences = [
             'Maintain the current system and it\'s technologies as well as migrating to new systems',
             'Implement new features, code refactoring and bug fixing & address technical issue',
             'Conduct integrations using Java, Apache Camel, Apache NiFi, handle data migration, and ensure seamless platform interoperability',
-            'Developed RESTful APIs and microservices in Java Spring Boot for high-traffic applications',
-            'Optimized database queries and implemented caching strategies, reducing response times by 30%',
-            'Designed and implemented scalable message queue systems using Redis for async processing',
+            'Develop RESTful APIs and microservices in Java Spring Boot for high-traffic applications',
+            'Optimize database queries and implemented caching strategies, reducing response times by 30%',
+            'Design and implement scalable message queue systems using Redis for async processing',
             'Collaborate closely with Product Managers, Designers, QAs, and Engineers to clarify requirements and align functional design',
-            'Participated in code reviews and contributed to improving code quality standards',
+            'Participate in code reviews and contributed to improving code quality standards',
             'Stay updated with Java features and best practices to enhance system performance and user experience'
         ],
         technologies: ['Java', 'Spring Boot', 'Apache Camel', 'Apache NiFi', 'PostgreSQL', 'MongoDB', 'Redis', 'Docker', 'Kubernetes', 'Jenkins'],
@@ -111,7 +111,7 @@ export default function Experience() {
             className="section-padding bg-white dark:bg-dark-950"
             ref={ref}
         >
-            <div className="max-w-5xl mx-auto">
+            <div className="max-w-6xl mx-auto">
                 {/* Section Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
