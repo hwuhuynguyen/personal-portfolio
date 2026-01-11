@@ -1,9 +1,9 @@
 import { FiGithub, FiLinkedin, FiMail, FiHeart } from 'react-icons/fi';
 
 const socialLinks = [
-    { icon: FiGithub, href: 'https://github.com', label: 'GitHub' },
-    { icon: FiLinkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: FiMail, href: 'mailto:huynguyen@example.com', label: 'Email' },
+    { icon: FiGithub, href: 'https://github.com/hwuhuynguyen', label: 'GitHub' },
+    { icon: FiLinkedin, href: 'https://www.linkedin.com/in/huynguyenhuu', label: 'LinkedIn' },
+    { icon: FiMail, href: 'mailto:nguyenhuuhuya1@gmail.com', label: 'Email' },
 ];
 
 export default function Footer() {
@@ -12,9 +12,9 @@ export default function Footer() {
             <div className="max-w-7xl mx-auto px-4 py-12">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                     <div className="text-center md:text-left">
-                        <a href="#home" className="text-2xl font-bold gradient-text">Huy.dev</a>
+                        <a href="#home" className="text-2xl font-bold gradient-text">Nguyen Huu Huy</a>
                         <p className="text-dark-500 dark:text-dark-400 mt-2">
-                            Backend Developer & API Architect
+                            Backend Software Engineer | Data Engineer | Solutions Architect
                         </p>
                     </div>
 

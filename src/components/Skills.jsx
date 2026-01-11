@@ -28,6 +28,9 @@ import {
     SiReact,
     SiVuedotjs,
     SiFirebase,
+    SiRabbitmq,
+    SiApache,
+    SiApachenifi,
 } from 'react-icons/si';
 import { FaJava } from 'react-icons/fa';
 
@@ -39,6 +42,7 @@ const filterCategories = [
     'Databases',
     'DevOps',
     'Tools',
+    'Others',
 ];
 
 // All skills with their categories for filtering
@@ -51,8 +55,9 @@ const skills = [
     { name: 'TypeScript', icon: SiTypescript, color: '#3178C6', category: 'Languages' },
 
     // Frameworks
-    { name: 'Express.js', icon: SiExpress, color: '#FFFFFF', category: 'Frameworks' },
     { name: 'Spring Boot', icon: SiSpringboot, color: '#6DB33F', category: 'Frameworks' },
+    { name: 'Apache Camel', icon: SiApache, color: '#FF9900', category: 'Frameworks' },
+    { name: 'Express.js', icon: SiExpress, color: '#FFFFFF', category: 'Frameworks' },
     { name: 'Django', icon: SiDjango, color: '#092E20', category: 'Frameworks' },
     { name: 'Flask', icon: SiFlask, color: '#FFFFFF', category: 'Frameworks' },
     { name: 'FastAPI', icon: SiFastapi, color: '#009688', category: 'Frameworks' },
@@ -77,6 +82,10 @@ const skills = [
     { name: 'Git', icon: SiGit, color: '#F05032', category: 'Tools' },
     { name: 'GitHub', icon: SiGithub, color: '#785959ff', category: 'Tools' },
     { name: 'Bitbucket', icon: SiBitbucket, color: '#2496ED', category: 'Tools' },
+
+    // Others
+    { name: 'RabbitMQ', icon: SiRabbitmq, color: '#FF9900', category: 'Others' },
+    { name: 'Apache NiFi', icon: SiApachenifi, color: '#4479A1', category: 'Others' },
 
 ];
 

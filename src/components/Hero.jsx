@@ -109,7 +109,7 @@ export default function Hero() {
                         transition={{ duration: 0.5, delay: 0.4 }}
                         className="text-dark-500 dark:text-dark-400 text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed"
                     >
-                        I'm a backend software engineer with over 1 year of experience in building scalable and resilient systems.
+                        I'm a backend software engineer with nearly 2 years of experience in building scalable and resilient systems.
                         I'm passionate about tackling complex challenges and constantly evolving to keep pace with the ever-changing
                         tech landscape. I'm working at Viettel Solutions, where I lead digital transformation initiatives that impact
                         millions of users.
