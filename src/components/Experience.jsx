@@ -4,10 +4,10 @@ import { HiBriefcase, HiCalendar, HiLocationMarker } from 'react-icons/hi';
 
 const experiences = [
     {
-        title: 'Backend Developer',
-        company: 'XYZ Solutions',
-        location: 'Ho Chi Minh City, Vietnam',
-        period: 'Jan 2023 - Present',
+        title: 'Software Engineer',
+        company: 'Viettel Solutions',
+        location: 'Da Nang, Vietnam',
+        period: 'Sep 2025 - Present',
         description: [
             'Developed RESTful APIs and microservices in Node.js and Express for high-traffic applications',
             'Implemented JWT-based authentication and role-based access control for secure user management',
@@ -18,10 +18,10 @@ const experiences = [
         technologies: ['Node.js', 'Express', 'MongoDB', 'Redis', 'Docker', 'AWS'],
     },
     {
-        title: 'Junior Backend Developer',
-        company: 'ABC Corp',
-        location: 'Hanoi, Vietnam',
-        period: 'Jun 2022 - Dec 2022',
+        title: 'Software Engineer',
+        company: 'Axon Active',
+        location: 'Da Nang, Vietnam',
+        period: 'Feb 2025 - Jun 2025',
         description: [
             'Worked on server-side logic using Django framework for enterprise web applications',
             'Designed and maintained PostgreSQL databases with complex relational schemas',
@@ -31,6 +31,48 @@ const experiences = [
         ],
         technologies: ['Django', 'PostgreSQL', 'Python', 'Jenkins', 'Git'],
     },
+    {
+        title: 'Backend Developer',
+        company: 'SapotaCorp',
+        location: 'Da Nang, Vietnam',
+        period: 'Oct 2024 - Jan 2025',
+        description: [
+            'Worked on server-side logic using Django framework for enterprise web applications',
+            'Designed and maintained PostgreSQL databases with complex relational schemas',
+            'Helped implement automated CI/CD pipelines using Jenkins for faster deployment cycles',
+            'Participated in code reviews and contributed to improving code quality standards',
+            'Developed internal tools for data migration and database maintenance',
+        ],
+        technologies: ['Django', 'PostgreSQL', 'Python', 'Jenkins', 'Git'],
+    },
+    {
+        title: 'Software Developer',
+        company: 'mgm technology & partners',
+        location: 'Da Nang, Vietnam',
+        period: 'Oct 2023 - Jan 2024',
+        description: [
+            'Worked on server-side logic using Django framework for enterprise web applications',
+            'Designed and maintained PostgreSQL databases with complex relational schemas',
+            'Helped implement automated CI/CD pipelines using Jenkins for faster deployment cycles',
+            'Participated in code reviews and contributed to improving code quality standards',
+            'Developed internal tools for data migration and database maintenance',
+        ],
+        technologies: ['Django', 'PostgreSQL', 'Python', 'Jenkins', 'Git'],
+    },
+    {
+        title: 'Software Developer',
+        company: 'PSCD',
+        location: 'Da Nang, Vietnam',
+        period: 'Feb 2023 - Oct 2023',
+        description: [
+            'Worked on server-side logic using Django framework for enterprise web applications',
+            'Designed and maintained PostgreSQL databases with complex relational schemas',
+            'Helped implement automated CI/CD pipelines using Jenkins for faster deployment cycles',
+            'Participated in code reviews and contributed to improving code quality standards',
+            'Developed internal tools for data migration and database maintenance',
+        ],
+        technologies: ['Django', 'PostgreSQL', 'Python', 'Jenkins', 'Git'],
+    }
 ];
 
 const containerVariants = {

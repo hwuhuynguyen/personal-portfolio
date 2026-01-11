@@ -1,22 +1,24 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { HiAcademicCap, HiBadgeCheck, HiCalendar } from 'react-icons/hi';
+import { HiAcademicCap, HiBadgeCheck, HiCalendar, HiGlobeAlt } from 'react-icons/hi';
 import { SiUdemy, SiAmazon } from 'react-icons/si';
 
 const education = {
-    degree: 'Bachelor of Science in Computer Science',
-    school: 'University of Technology',
-    location: 'Ho Chi Minh City, Vietnam',
-    period: '2019 - 2023',
-    description: 'Focused on software engineering and distributed computing. Graduated with honors.',
+    degree: 'Engineering of Information Technology',
+    school: 'University of Science and Technology - The University of Da Nang',
+    location: 'Da Nang, Vietnam',
+    period: '2020 - 2025',
+    description: 'Focused on software engineering and distributed computing. Graduated with distinction.',
     courses: ['Data Structures', 'Database Systems', 'Distributed Systems', 'Computer Networks', 'Software Engineering'],
 };
 
 const certifications = [
-    { title: 'AWS Certified Solutions Architect', issuer: 'Amazon Web Services', date: '2023', icon: SiAmazon, color: '#FF9900' },
-    { title: 'Advanced Node.js Development', issuer: 'Udemy', date: '2022', icon: SiUdemy, color: '#A435F0' },
-    { title: 'MongoDB Database Administrator', issuer: 'MongoDB University', date: '2022', icon: HiBadgeCheck, color: '#47A248' },
-    { title: 'Docker & Kubernetes Mastery', issuer: 'Udemy', date: '2023', icon: SiUdemy, color: '#A435F0' },
+    { title: 'TOEIC - Score 860', issuer: 'ETS', date: '2025', icon: HiGlobeAlt, color: '#1E90FF' },
+    // { title: 'AWS Certified Solutions Architect', issuer: 'Amazon Web Services', date: '2023', icon: SiAmazon, color: '#FF9900' },
+    // { title: 'Docker & Kubernetes Mastery', issuer: 'Udemy', date: '2023', icon: SiUdemy, color: '#A435F0' },
+    // { title: 'Advanced Node.js Development', issuer: 'Udemy', date: '2022', icon: SiUdemy, color: '#A435F0' },
+    // { title: 'MongoDB Database Administrator', issuer: 'MongoDB University', date: '2022', icon: HiBadgeCheck, color: '#47A248' },
+    { title: 'IELTS Academic - Band 6.5', issuer: 'British Council', date: '2020', icon: HiGlobeAlt, color: '#0047AB' },
 ];
 
 export default function Education() {

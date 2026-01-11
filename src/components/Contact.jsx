@@ -36,17 +36,17 @@ export default function Contact() {
                             I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
                         </p>
                         <div className="space-y-4">
-                            <a href="mailto:huynguyen@example.com" className="flex items-center gap-4 text-dark-600 dark:text-dark-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                            <a href="mailto:nguyenhuuhuya1@gmail.com" className="flex items-center gap-4 text-dark-600 dark:text-dark-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
                                 <div className="p-3 bg-primary-100 dark:bg-primary-900/30 rounded-lg"><FiMail className="text-primary-600 dark:text-primary-400" size={20} /></div>
-                                <span>huynguyen@example.com</span>
+                                <span>nguyenhuuhuya1@gmail.com</span>
                             </a>
-                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-dark-600 dark:text-dark-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                            <a href="https://github.com/hwuhuynguyen" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-dark-600 dark:text-dark-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
                                 <div className="p-3 bg-primary-100 dark:bg-primary-900/30 rounded-lg"><FiGithub className="text-primary-600 dark:text-primary-400" size={20} /></div>
-                                <span>github.com/huynguyen</span>
+                                <span>github.com/hwuhuynguyen</span>
                             </a>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-dark-600 dark:text-dark-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                            <a href="https://www.linkedin.com/in/huynguyenhuu" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-dark-600 dark:text-dark-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
                                 <div className="p-3 bg-primary-100 dark:bg-primary-900/30 rounded-lg"><FiLinkedin className="text-primary-600 dark:text-primary-400" size={20} /></div>
-                                <span>linkedin.com/in/huynguyen</span>
+                                <span>linkedin.com/in/huynguyenhuu</span>
                             </a>
                         </div>
                     </motion.div>

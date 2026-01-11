@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import {
     SiNodedotjs,
     SiPython,
@@ -23,57 +23,61 @@ import {
     SiGithub,
     SiJenkins,
     SiGraphql,
+    SiBitbucket,
+    SiElasticsearch,
+    SiReact,
+    SiVuedotjs,
+    SiFirebase,
 } from 'react-icons/si';
 import { FaJava } from 'react-icons/fa';
 
-const skillCategories = [
-    {
-        title: 'Backend Languages',
-        skills: [
-            { name: 'Java', icon: FaJava, color: '#ED8B00' },
-            { name: 'Node.js', icon: SiNodedotjs, color: '#339933' },
-            { name: 'Python', icon: SiPython, color: '#3776AB' },
-            { name: 'Go', icon: SiGo, color: '#00ADD8' },
-            { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
-            { name: 'TypeScript', icon: SiTypescript, color: '#3178C6' },
-        ],
-    },
-    {
-        title: 'Frameworks & Libraries',
-        skills: [
-            { name: 'Express.js', icon: SiExpress, color: '#FFFFFF' },
-            { name: 'Spring Boot', icon: SiSpringboot, color: '#6DB33F' },
-            { name: 'Django', icon: SiDjango, color: '#092E20' },
-            { name: 'Flask', icon: SiFlask, color: '#FFFFFF' },
-            { name: 'FastAPI', icon: SiFastapi, color: '#009688' },
-        ],
-    },
-    {
-        title: 'Databases',
-        skills: [
-            { name: 'PostgreSQL', icon: SiPostgresql, color: '#4169E1' },
-            { name: 'MongoDB', icon: SiMongodb, color: '#47A248' },
-            { name: 'MySQL', icon: SiMysql, color: '#4479A1' },
-            { name: 'Redis', icon: SiRedis, color: '#DC382D' },
-        ],
-    },
-    {
-        title: 'DevOps & Cloud',
-        skills: [
-            { name: 'Docker', icon: SiDocker, color: '#2496ED' },
-            { name: 'Kubernetes', icon: SiKubernetes, color: '#326CE5' },
-            { name: 'AWS', icon: SiAmazon, color: '#FF9900' },
-            { name: 'Jenkins', icon: SiJenkins, color: '#D24939' },
-        ],
-    },
-    {
-        title: 'API & Tools',
-        skills: [
-            { name: 'GraphQL', icon: SiGraphql, color: '#E10098' },
-            { name: 'Git', icon: SiGit, color: '#F05032' },
-            { name: 'GitHub', icon: SiGithub, color: '#FFFFFF' },
-        ],
-    },
+// Filter categories
+const filterCategories = [
+    'All',
+    'Languages',
+    'Frameworks',
+    'Databases',
+    'DevOps',
+    'Tools',
+];
+
+// All skills with their categories for filtering
+const skills = [
+    // Languages
+    { name: 'Java', icon: FaJava, color: '#ED8B00', category: 'Languages' },
+    { name: 'Node.js', icon: SiNodedotjs, color: '#339933', category: 'Languages' },
+    { name: 'Python', icon: SiPython, color: '#3776AB', category: 'Languages' },
+    { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E', category: 'Languages' },
+    { name: 'TypeScript', icon: SiTypescript, color: '#3178C6', category: 'Languages' },
+
+    // Frameworks
+    { name: 'Express.js', icon: SiExpress, color: '#FFFFFF', category: 'Frameworks' },
+    { name: 'Spring Boot', icon: SiSpringboot, color: '#6DB33F', category: 'Frameworks' },
+    { name: 'Django', icon: SiDjango, color: '#092E20', category: 'Frameworks' },
+    { name: 'Flask', icon: SiFlask, color: '#FFFFFF', category: 'Frameworks' },
+    { name: 'FastAPI', icon: SiFastapi, color: '#009688', category: 'Frameworks' },
+    { name: 'React', icon: SiReact, color: '#61DAFB', category: 'Frameworks' },
+    { name: 'Vue.js', icon: SiVuedotjs, color: '#4FC08D', category: 'Frameworks' },
+
+    // Databases
+    { name: 'PostgreSQL', icon: SiPostgresql, color: '#4169E1', category: 'Databases' },
+    { name: 'MongoDB', icon: SiMongodb, color: '#47A248', category: 'Databases' },
+    { name: 'MySQL', icon: SiMysql, color: '#4479A1', category: 'Databases' },
+    { name: 'Redis', icon: SiRedis, color: '#DC382D', category: 'Databases' },
+    { name: 'Elasticsearch', icon: SiElasticsearch, color: '#F9A825', category: 'Databases' },
+    { name: 'Firebase', icon: SiFirebase, color: '#FFCA28', category: 'Databases' },
+
+    // DevOps
+    { name: 'Docker', icon: SiDocker, color: '#2496ED', category: 'DevOps' },
+    { name: 'Kubernetes', icon: SiKubernetes, color: '#326CE5', category: 'DevOps' },
+    { name: 'AWS', icon: SiAmazon, color: '#FF9900', category: 'DevOps' },
+    { name: 'Jenkins', icon: SiJenkins, color: '#D24939', category: 'DevOps' },
+
+    // Tools
+    { name: 'Git', icon: SiGit, color: '#F05032', category: 'Tools' },
+    { name: 'GitHub', icon: SiGithub, color: '#785959ff', category: 'Tools' },
+    { name: 'Bitbucket', icon: SiBitbucket, color: '#2496ED', category: 'Tools' },
+
 ];
 
 const containerVariants = {
@@ -81,19 +85,27 @@ const containerVariants = {
     visible: {
         opacity: 1,
         transition: {
-            staggerChildren: 0.1,
+            staggerChildren: 0.05,
         },
     },
 };
 
 const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { scale: 0.8, opacity: 0 },
     visible: {
-        y: 0,
+        scale: 1,
         opacity: 1,
         transition: {
             type: 'spring',
             stiffness: 100,
+            damping: 15,
+        },
+    },
+    exit: {
+        scale: 0.8,
+        opacity: 0,
+        transition: {
+            duration: 0.2,
         },
     },
 };
@@ -101,6 +113,11 @@ const itemVariants = {
 export default function Skills() {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: '-100px' });
+    const [activeFilter, setActiveFilter] = useState('All');
+
+    const filteredSkills = activeFilter === 'All'
+        ? skills
+        : skills.filter(skill => skill.category === activeFilter);
 
     return (
         <section
@@ -114,7 +131,7 @@ export default function Skills() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.5 }}
-                    className="text-center mb-16"
+                    className="text-center mb-12"
                 >
                     <h2 className="text-4xl md:text-5xl font-bold text-dark-800 dark:text-white mb-4">
                         Technical <span className="gradient-text">Skills</span>
@@ -125,45 +142,58 @@ export default function Skills() {
                     </p>
                 </motion.div>
 
+                {/* Filter Buttons */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    className="flex flex-wrap justify-center gap-3 mb-12"
+                >
+                    {filterCategories.map((category) => (
+                        <motion.button
+                            key={category}
+                            onClick={() => setActiveFilter(category)}
+                            className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border ${activeFilter === category
+                                ? 'bg-gradient-to-r from-primary-500 to-accent-500 text-white border-transparent shadow-lg shadow-primary-500/25'
+                                : 'bg-white dark:bg-dark-800 text-dark-600 dark:text-dark-300 border-dark-200 dark:border-dark-700 hover:border-primary-500/50 hover:text-primary-500 dark:hover:text-primary-400'
+                                }`}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            {category}
+                        </motion.button>
+                    ))}
+                </motion.div>
+
                 {/* Skills Grid */}
                 <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    animate={isInView ? 'visible' : 'hidden'}
-                    className="space-y-12"
+                    layout
+                    className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4"
                 >
-                    {skillCategories.map((category, categoryIndex) => (
-                        <motion.div
-                            key={category.title}
-                            variants={itemVariants}
-                            className="bg-white dark:bg-dark-800/50 rounded-2xl p-6 md:p-8 shadow-lg dark:shadow-none border border-dark-200 dark:border-dark-700"
-                        >
-                            <h3 className="text-xl md:text-2xl font-semibold text-dark-800 dark:text-white mb-6">
-                                {category.title}
-                            </h3>
-                            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                                {category.skills.map((skill, skillIndex) => (
-                                    <motion.div
-                                        key={skill.name}
-                                        className="group relative"
-                                        whileHover={{ scale: 1.05 }}
-                                        whileTap={{ scale: 0.95 }}
-                                    >
-                                        <div className="flex flex-col items-center p-4 rounded-xl bg-dark-100 dark:bg-dark-700/50 hover:bg-dark-200 dark:hover:bg-dark-700 transition-all duration-300 border border-transparent hover:border-primary-500/30">
-                                            <skill.icon
-                                                size={40}
-                                                style={{ color: skill.color }}
-                                                className="mb-3 group-hover:scale-110 transition-transform"
-                                            />
-                                            <span className="text-sm font-medium text-dark-600 dark:text-dark-300 text-center">
-                                                {skill.name}
-                                            </span>
-                                        </div>
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </motion.div>
-                    ))}
+                    <AnimatePresence mode="popLayout">
+                        {filteredSkills.map((skill) => (
+                            <motion.div
+                                key={skill.name}
+                                layout
+                                variants={itemVariants}
+                                initial="hidden"
+                                animate="visible"
+                                exit="exit"
+                                className="group"
+                            >
+                                <div className="flex items-center gap-3 p-4 rounded-xl bg-white dark:bg-dark-800/80 hover:bg-dark-100 dark:hover:bg-dark-700 transition-all duration-300 border border-dark-200 dark:border-dark-700 hover:border-primary-500/50 dark:hover:border-primary-500/50 shadow-sm hover:shadow-md dark:shadow-none">
+                                    <skill.icon
+                                        size={28}
+                                        style={{ color: skill.color }}
+                                        className="flex-shrink-0 group-hover:scale-110 transition-transform"
+                                    />
+                                    <span className="text-sm font-medium text-dark-700 dark:text-dark-200 truncate">
+                                        {skill.name}
+                                    </span>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </AnimatePresence>
                 </motion.div>
             </div>
         </section>

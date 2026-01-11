@@ -1,8 +1,25 @@
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FiGithub, FiLinkedin, FiMail, FiDownload } from 'react-icons/fi';
 import { HiOutlineChevronDown } from 'react-icons/hi';
+import { useState, useEffect } from 'react';
+
+const titles = [
+    'Backend Software Engineer',
+    'Data Engineer',
+    'Solutions Architect',
+];
 
 export default function Hero() {
+    const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentTitleIndex((prev) => (prev + 1) % titles.length);
+        }, 3000); // Change title every 3 seconds
+
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <section
             id="home"
@@ -69,15 +86,21 @@ export default function Hero() {
                         <span className="gradient-text">Nguyen Huu Huy</span>
                     </motion.h1>
 
-                    {/* Title */}
-                    <motion.h2
-                        initial={{ y: 50, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.5, delay: 0.3 }}
-                        className="text-xl md:text-2xl lg:text-3xl text-dark-600 dark:text-dark-300 mb-6"
-                    >
-                        Backend Software Engineer & Solutions Architect
-                    </motion.h2>
+                    {/* Rotating Title */}
+                    <div className="text-xl md:text-2xl lg:text-3xl text-dark-600 dark:text-dark-300 mb-6 h-12 md:h-14 lg:h-16 flex items-center justify-center">
+                        <AnimatePresence mode="wait">
+                            <motion.h2
+                                key={currentTitleIndex}
+                                initial={{ x: -30, opacity: 0 }}
+                                animate={{ x: 0, opacity: 1 }}
+                                exit={{ x: 30, opacity: 0 }}
+                                transition={{ duration: 1 }}
+                                className="absolute"
+                            >
+                                {titles[currentTitleIndex]}
+                            </motion.h2>
+                        </AnimatePresence>
+                    </div>
 
                     {/* Description */}
                     <motion.p
@@ -86,11 +109,10 @@ export default function Hero() {
                         transition={{ duration: 0.5, delay: 0.4 }}
                         className="text-dark-500 dark:text-dark-400 text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed"
                     >
-                        A backend developer with a passion for creating robust, scalable APIs
-                        and server-side applications. I specialize in Java, Node.js, and databases
-                        like PostgreSQL and MongoDB. I thrive in building the infrastructure that
-                        powers modern web applications and strive to make them secure, efficient,
-                        and maintainable.
+                        I'm a backend software engineer with over 1 year of experience in building scalable and resilient systems.
+                        I'm passionate about tackling complex challenges and constantly evolving to keep pace with the ever-changing
+                        tech landscape. I'm working at Viettel Solutions, where I lead digital transformation initiatives that impact
+                        millions of users.
                     </motion.p>
 
                     {/* CTA Buttons */}
@@ -126,9 +148,9 @@ export default function Hero() {
                         className="flex items-center justify-center gap-6"
                     >
                         {[
-                            { icon: FiGithub, href: 'https://github.com', label: 'GitHub' },
-                            { icon: FiLinkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-                            { icon: FiMail, href: 'mailto:huy@example.com', label: 'Email' },
+                            { icon: FiGithub, href: 'https://github.com/hwuhuynguyen', label: 'GitHub' },
+                            { icon: FiLinkedin, href: 'https://www.linkedin.com/in/huynguyenhuu', label: 'LinkedIn' },
+                            { icon: FiMail, href: 'mailto:nguyenhuuhuya1@gmail.com', label: 'Email' },
                         ].map((social, index) => (
                             <motion.a
                                 key={social.label}
